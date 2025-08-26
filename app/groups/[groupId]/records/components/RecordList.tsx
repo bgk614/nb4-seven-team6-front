@@ -44,9 +44,14 @@ const RecordList = ({
   }, [inView, loadMore]);
 
   useEffect(() => {
-    setRecords(initialValues);
+    setRecords((prev) => {
+      if (JSON.stringify(prev) !== JSON.stringify(initialValues)) {
+        return initialValues;
+      }
+      return prev;
+    });
     setPage(paginationQuery?.page ?? 1);
-  }, [initialValues, paginationQuery]);
+  }, [initialValues, paginationQuery?.page]);
 
   const hasNext = records.length < total;
 
