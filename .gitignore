@@ -6,3 +6,15 @@
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
+node_modules
+# Next.js
+.next
+out
+
+# build artifacts
+*.json
+!package.json
+!tsconfig.json
+
+# env
+.env
