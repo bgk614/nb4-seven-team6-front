@@ -53,16 +53,13 @@ const GroupDeleteModal = ({
         error={formState.errors.root?.message}
       >
         <input type="hidden" name="groupId" value={groupId} />
-        <Label
-          htmlFor="ownerPassword"
-          error={!!formState.errors.ownerPassword?.message}
-        >
+        <Label htmlFor="password" error={!!formState.errors.password?.message}>
           비밀번호
         </Label>
         <Input
           className={cx('input')}
           type="password"
-          {...register('ownerPassword')}
+          {...register('password')}
         />
         <Button
           className={cx('button')}
