@@ -4,8 +4,8 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
-        source: '/groups/:groupId((?!/new).)*',
-        destination: '/groups/:groupId*/records',
+        source: '/groups/:groupId((?!new$)[^/]+)',
+        destination: '/groups/:groupId/records',
         permanent: false,
       },
     ];

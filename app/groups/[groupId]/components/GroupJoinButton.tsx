@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useRouter } from 'next/navigation';
 import classNames from 'classnames/bind';
 import { GroupJoin } from '@/types/entities';
 import Modal from '@/lib/components/Modal';
@@ -29,7 +30,7 @@ const GroupJoinModal = ({
 }) => {
   const { register, handleSubmit, setError, reset, formState } =
     useForm<GroupJoin>();
-
+  const router = useRouter();
   const submit = async (data: GroupJoin) => {
     const result = await joinGroupAction(groupId, data);
     if (result.status !== 200) {
@@ -41,6 +42,7 @@ const GroupJoinModal = ({
     }
     onSubmit();
     reset();
+    router.refresh();
   };
 
   return (
