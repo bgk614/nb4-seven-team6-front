@@ -48,16 +48,16 @@ export interface GroupCreate {
   discordWebhookUrl?: string;
   discordInviteUrl?: string | null;
   tags: string[];
-  ownerNickname: string;
-  ownerPassword: string;
+  nickname: string;
+  password: string;
 }
 
 export type GroupUpdate = Partial<GroupCreate> & {
-  ownerPassword: string;
+  password: string;
 };
 
 export interface GroupDelete {
-  ownerPassword: string;
+  password: string;
 }
 
 export interface GroupJoin {

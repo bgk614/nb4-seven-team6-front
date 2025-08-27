@@ -30,7 +30,7 @@ const GroupPreview = ({ values }: { values: GroupCreate | GroupUpdate }) => {
         discordWebhookUrl: values.discordWebhookUrl ?? '',
         discordInviteUrl: values.discordInviteUrl ?? '',
         owner: {
-          nickname: values.ownerNickname ?? '',
+          nickname: values.nickname ?? '',
           id: 0,
           createdAt: 0,
           updatedAt: 0,
@@ -68,8 +68,8 @@ const GroupForm = ({
           'participants',
           'recordCount',
         ]),
-        ownerNickname: group.owner.nickname,
-        ownerPassword: '',
+        nickname: group.owner.nickname,
+        password: '',
       }
     : undefined;
 
@@ -187,9 +187,9 @@ const GroupForm = ({
           </div>
           <div>
             <Label
-              id="ownerNickname"
-              htmlFor="ownerNickname"
-              error={!!formState.errors.ownerNickname}
+              id="nickname"
+              htmlFor="nickname"
+              error={!!formState.errors.nickname}
             >
               닉네임
             </Label>
@@ -197,27 +197,27 @@ const GroupForm = ({
               type="text"
               placeholder="닉네임을 입력해 주세요."
               disabled={type === 'update'}
-              {...register('ownerNickname', {
+              {...register('nickname', {
                 required: '닉네임을 입력해 주세요.',
               })}
-              error={formState.errors.ownerNickname?.message}
+              error={formState.errors.nickname?.message}
             />
           </div>
           <div>
             <Label
-              id="ownerPassword"
-              htmlFor="ownerPassword"
-              error={!!formState.errors.ownerPassword}
+              id="password"
+              htmlFor="password"
+              error={!!formState.errors.password}
             >
               비밀번호
             </Label>
             <Input
               type="password"
               placeholder="비밀번호를 입력해 주세요."
-              {...register('ownerPassword', {
+              {...register('password', {
                 required: '비밀번호를 입력해 주세요.',
               })}
-              error={formState.errors.ownerPassword?.message}
+              error={formState.errors.password?.message}
             />
           </div>
           <div className={cx('tags')}>
