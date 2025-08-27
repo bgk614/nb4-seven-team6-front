@@ -57,6 +57,7 @@ export type GroupUpdate = Partial<GroupCreate> & {
 };
 
 export interface GroupDelete {
+  nickname: string;
   password: string;
 }
 
