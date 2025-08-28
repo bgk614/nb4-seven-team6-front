@@ -44,11 +44,6 @@ const RecordList = ({
   }, [inView, loadMore]);
 
   useEffect(() => {
-<<<<<<< HEAD
-    setRecords(initialValues);
-    setPage(paginationQuery?.page ?? 1);
-  }, [initialValues, paginationQuery]);
-=======
     setRecords((prev) => {
       if (JSON.stringify(prev) !== JSON.stringify(initialValues)) {
         return initialValues;
@@ -57,7 +52,6 @@ const RecordList = ({
     });
     setPage(paginationQuery?.page ?? 1);
   }, [initialValues, paginationQuery?.page]);
->>>>>>> upstream/main
 
   const hasNext = records.length < total;
 

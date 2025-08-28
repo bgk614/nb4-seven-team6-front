@@ -1,16 +1,10 @@
 .container {
-<<<<<<< HEAD
-=======
   position: relative;
->>>>>>> upstream/main
   display: flex;
   align-items: stretch;
   gap: 16px;
   height: 42px;
-<<<<<<< HEAD
-=======
   z-index: 1;
->>>>>>> upstream/main
 }
 
 .total {
@@ -23,8 +17,4 @@
 
 .orderBy {
   height: 100%;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> upstream/main

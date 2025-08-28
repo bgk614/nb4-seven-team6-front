@@ -2,10 +2,7 @@
 
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-<<<<<<< HEAD
-=======
 import { useRouter } from 'next/navigation';
->>>>>>> upstream/main
 import classNames from 'classnames/bind';
 import { GroupJoin } from '@/types/entities';
 import Modal from '@/lib/components/Modal';
@@ -104,17 +101,11 @@ const GroupLeaveButton = ({
   groupId: number;
 }) => {
   const [isOpen, setIsOpen] = useState(false);
-<<<<<<< HEAD
-
-  const handleSubmit = () => {
-    setIsOpen(false);
-=======
   const router = useRouter();
 
   const handleSubmit = () => {
     setIsOpen(false);
     router.push('/');
->>>>>>> upstream/main
   };
 
   return (
