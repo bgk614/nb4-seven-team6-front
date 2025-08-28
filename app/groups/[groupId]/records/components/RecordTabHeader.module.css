@@ -1,8 +1,10 @@
 .container {
+  position: relative;
   display: flex;
   align-items: stretch;
   gap: 16px;
   height: 42px;
+  z-index: 1;
 }
 
 .total {
