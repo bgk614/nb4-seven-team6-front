@@ -117,6 +117,14 @@ const GroupForm = ({
               placeholder="100KM 달성 챌린지"
               {...register('name', {
                 required: '그룹명을 입력해 주세요.',
+                minLength: {
+                  value: 2,
+                  message: '그룹명은 2글자 이상이어야 합니다.',
+                },
+                maxLength: {
+                  value: 50,
+                  message: '그룹명은 50글자 이하여야 합니다.',
+                },
               })}
               error={formState.errors.name?.message}
             />
@@ -146,6 +154,14 @@ const GroupForm = ({
               placeholder="다 같이 열심히 해서 러닝으로 100KM를 찍어봐요."
               {...register('description', {
                 required: '설명을 입력해 주세요.',
+                minLength: {
+                  value: 5,
+                  message: '설명은 5글자 이상이어야 합니다.',
+                },
+                maxLength: {
+                  value: 500,
+                  message: '설명은 500글자 이하여야 합니다.',
+                },
               })}
               error={formState.errors.description?.message}
             />
@@ -164,6 +180,10 @@ const GroupForm = ({
               placeholder="URL을 입력해 주세요."
               {...register('discordWebhookUrl', {
                 required: '디스코드 웹훅 URL을 입력해 주세요.',
+                pattern: {
+                  value: /^https:\/\/discord\.com\/api\/webhooks\/\d+\/[\w-]+$/,
+                  message: '올바른 디스코드 웹훅 URL 형식을 입력해 주세요.',
+                },
               })}
               error={formState.errors.discordWebhookUrl?.message}
             />
@@ -181,6 +201,10 @@ const GroupForm = ({
               placeholder="URL을 입력해 주세요."
               {...register('discordInviteUrl', {
                 required: '디스코드 서버 초대 URL을 입력해 주세요.',
+                pattern: {
+                  value: /^https:\/\/discord\.gg\/[\w-]+$/,
+                  message: '올바른 디스코드 초대 URL 형식을 입력해 주세요.',
+                },
               })}
               error={formState.errors.discordInviteUrl?.message}
             />
@@ -199,6 +223,19 @@ const GroupForm = ({
               disabled={type === 'update'}
               {...register('nickname', {
                 required: '닉네임을 입력해 주세요.',
+                minLength: {
+                  value: 2,
+                  message: '닉네임은 2글자 이상이어야 합니다.',
+                },
+                maxLength: {
+                  value: 20,
+                  message: '닉네임은 20글자 이하여야 합니다.',
+                },
+                pattern: {
+                  value: /^[가-힣a-zA-Z0-9_-]+$/,
+                  message:
+                    '닉네임은 한글, 영문, 숫자, _, - 만 사용할 수 있습니다.',
+                },
               })}
               error={formState.errors.nickname?.message}
             />
@@ -216,6 +253,14 @@ const GroupForm = ({
               placeholder="비밀번호를 입력해 주세요."
               {...register('password', {
                 required: '비밀번호를 입력해 주세요.',
+                minLength: {
+                  value: 4,
+                  message: '비밀번호는 4글자 이상이어야 합니다.',
+                },
+                maxLength: {
+                  value: 50,
+                  message: '비밀번호는 50글자 이하여야 합니다.',
+                },
               })}
               error={formState.errors.password?.message}
             />
@@ -246,16 +291,20 @@ const GroupForm = ({
               {...register('goalRep', {
                 valueAsNumber: true,
                 required: '목표 횟수를 입력해 주세요.',
+                min: {
+                  value: 1,
+                  message: '목표 횟수는 1 이상이어야 합니다.',
+                },
+                max: {
+                  value: 10000,
+                  message: '목표 횟수는 10000 이하여야 합니다.',
+                },
               })}
               error={formState.errors.goalRep?.message}
             />
           </div>
           <div>
-            <Button
-              className={cx('submitButton')}
-              type="submit"
-              disabled={!formState.isValid}
-            >
+            <Button className={cx('submitButton')} type="submit">
               {type === 'create' ? '만들기' : '수정하기'}
             </Button>
           </div>
