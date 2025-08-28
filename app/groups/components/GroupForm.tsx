@@ -182,7 +182,7 @@ const GroupForm = ({
                 required: '디스코드 웹훅 URL을 입력해 주세요.',
                 pattern: {
                   value: /^https:\/\/discord\.com\/api\/webhooks\/\d+\/[\w-]+$/,
-                  message: '올바른 디스코드 웹훅 URL 형식을 입력해 주세요.',
+                  message: 'https://로 시작하는 유효한 URL을 입력해 주세요.',
                 },
               })}
               error={formState.errors.discordWebhookUrl?.message}
@@ -203,7 +203,7 @@ const GroupForm = ({
                 required: '디스코드 서버 초대 URL을 입력해 주세요.',
                 pattern: {
                   value: /^https:\/\/discord\.gg\/[\w-]+$/,
-                  message: '올바른 디스코드 초대 URL 형식을 입력해 주세요.',
+                  message: 'https://로 시작하는 유효한 URL을 입력해 주세요.',
                 },
               })}
               error={formState.errors.discordInviteUrl?.message}
