@@ -155,8 +155,8 @@ const GroupForm = ({
               {...register('description', {
                 required: '설명을 입력해 주세요.',
                 minLength: {
-                  value: 5,
-                  message: '설명은 5글자 이상이어야 합니다.',
+                  value: 1,
+                  message: '설명을 입력해 주세요.',
                 },
                 maxLength: {
                   value: 500,
@@ -181,8 +181,8 @@ const GroupForm = ({
               {...register('discordWebhookUrl', {
                 required: '디스코드 웹훅 URL을 입력해 주세요.',
                 pattern: {
-                  value: /^https:\/\//,
-                  message: 'https://로 시작하는 유효한 URL을 입력해 주세요.',
+                  value: /^https?:\/\/[^\s$.?#].[^\s]*$/,
+                  message: 'http:// 또는 https://로 시작하는 URL을 입력해 주세요. (예: https://discord.com/api/webhooks/...)',
                 },
               })}
               error={formState.errors.discordWebhookUrl?.message}
@@ -202,8 +202,8 @@ const GroupForm = ({
               {...register('discordInviteUrl', {
                 required: '디스코드 서버 초대 URL을 입력해 주세요.',
                 pattern: {
-                  value: /^https:\/\//,
-                  message: 'https://로 시작하는 유효한 URL을 입력해 주세요.',
+                  value: /^https?:\/\/[^\s$.?#].[^\s]*$/,
+                  message: 'http:// 또는 https://로 시작하는 URL을 입력해 주세요. (예: https://discord.gg/abcd1234)',
                 },
               })}
               error={formState.errors.discordInviteUrl?.message}
@@ -254,8 +254,8 @@ const GroupForm = ({
               {...register('password', {
                 required: '비밀번호를 입력해 주세요.',
                 minLength: {
-                  value: 4,
-                  message: '비밀번호는 4글자 이상이어야 합니다.',
+                  value: 6,
+                  message: '비밀번호는 6글자 이상이어야 합니다.',
                 },
                 maxLength: {
                   value: 50,
