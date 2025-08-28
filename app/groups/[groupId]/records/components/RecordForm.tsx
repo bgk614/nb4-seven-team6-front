@@ -99,7 +99,14 @@ const RecordForm = ({
             id="description"
             error={formState.errors.description?.message}
             {...register('description', {
+<<<<<<< HEAD
               required: '설명을 입력해 주세요.',
+=======
+              maxLength: {
+                value: 500,
+                message: '설명은 500글자 이하여야 합니다.',
+              },
+>>>>>>> upstream/main
             })}
           />
         </div>
@@ -112,6 +119,18 @@ const RecordForm = ({
             error={formState.errors.distance?.message}
             {...register('distance', {
               valueAsNumber: true,
+<<<<<<< HEAD
+=======
+              required: '거리를 입력해 주세요.',
+              min: {
+                value: 0,
+                message: '거리는 0 이상이어야 합니다.',
+              },
+              max: {
+                value: 999,
+                message: '거리는 999km 이하여야 합니다.',
+              },
+>>>>>>> upstream/main
             })}
           />
         </div>
@@ -124,6 +143,14 @@ const RecordForm = ({
             value={time}
             {...register('time', {
               valueAsNumber: true,
+<<<<<<< HEAD
+=======
+              required: '시간을 입력해 주세요.',
+              min: {
+                value: 1,
+                message: '운동 시간은 최소 1초 이상이어야 합니다.',
+              },
+>>>>>>> upstream/main
             })}
           />
         </div>
@@ -136,6 +163,21 @@ const RecordForm = ({
             error={formState.errors.authorNickname?.message}
             {...register('authorNickname', {
               required: '닉네임을 입력해 주세요.',
+<<<<<<< HEAD
+=======
+              minLength: {
+                value: 2,
+                message: '닉네임은 2글자 이상이어야 합니다.',
+              },
+              maxLength: {
+                value: 20,
+                message: '닉네임은 20글자 이하여야 합니다.',
+              },
+              pattern: {
+                value: /^[가-힣a-zA-Z0-9_-]+$/,
+                message: '닉네임은 한글, 영문, 숫자, _, - 만 사용할 수 있습니다.',
+              },
+>>>>>>> upstream/main
             })}
           />
         </div>
@@ -148,11 +190,26 @@ const RecordForm = ({
             error={formState.errors.authorPassword?.message}
             {...register('authorPassword', {
               required: '비밀번호를 입력해 주세요.',
+<<<<<<< HEAD
+=======
+              minLength: {
+                value: 6,
+                message: '비밀번호는 6글자 이상이어야 합니다.',
+              },
+              maxLength: {
+                value: 50,
+                message: '비밀번호는 50글자 이하여야 합니다.',
+              },
+>>>>>>> upstream/main
             })}
           />
         </div>
 
+<<<<<<< HEAD
         <Button type="submit" className={cx('submit')} disabled={!formState.isValid}>
+=======
+        <Button type="submit" className={cx('submit')}>
+>>>>>>> upstream/main
           생성하기
         </Button>
       </Form>

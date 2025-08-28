@@ -205,7 +205,11 @@ export const uploadImage = async (
   try {
     const formData = new FormData();
     files.forEach((file) => formData.append('files', file));
+<<<<<<< HEAD
     const response = await axios.postForm('/images', formData);
+=======
+    const response = await axios.postForm('/uploads', formData);
+>>>>>>> upstream/main
     const { urls } = response.data;
     return { urls };
   } catch (error) {

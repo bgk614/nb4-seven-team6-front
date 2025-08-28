@@ -30,7 +30,11 @@ const GroupPreview = ({ values }: { values: GroupCreate | GroupUpdate }) => {
         discordWebhookUrl: values.discordWebhookUrl ?? '',
         discordInviteUrl: values.discordInviteUrl ?? '',
         owner: {
+<<<<<<< HEAD
           nickname: values.ownerNickname ?? '',
+=======
+          nickname: values.nickname ?? '',
+>>>>>>> upstream/main
           id: 0,
           createdAt: 0,
           updatedAt: 0,
@@ -68,8 +72,13 @@ const GroupForm = ({
           'participants',
           'recordCount',
         ]),
+<<<<<<< HEAD
         ownerNickname: group.owner.nickname,
         ownerPassword: '',
+=======
+        nickname: group.owner.nickname,
+        password: '',
+>>>>>>> upstream/main
       }
     : undefined;
 
@@ -117,6 +126,17 @@ const GroupForm = ({
               placeholder="100KM 달성 챌린지"
               {...register('name', {
                 required: '그룹명을 입력해 주세요.',
+<<<<<<< HEAD
+=======
+                minLength: {
+                  value: 2,
+                  message: '그룹명은 2글자 이상이어야 합니다.',
+                },
+                maxLength: {
+                  value: 50,
+                  message: '그룹명은 50글자 이하여야 합니다.',
+                },
+>>>>>>> upstream/main
               })}
               error={formState.errors.name?.message}
             />
@@ -146,6 +166,17 @@ const GroupForm = ({
               placeholder="다 같이 열심히 해서 러닝으로 100KM를 찍어봐요."
               {...register('description', {
                 required: '설명을 입력해 주세요.',
+<<<<<<< HEAD
+=======
+                minLength: {
+                  value: 1,
+                  message: '설명을 입력해 주세요.',
+                },
+                maxLength: {
+                  value: 500,
+                  message: '설명은 500글자 이하여야 합니다.',
+                },
+>>>>>>> upstream/main
               })}
               error={formState.errors.description?.message}
             />
@@ -164,6 +195,13 @@ const GroupForm = ({
               placeholder="URL을 입력해 주세요."
               {...register('discordWebhookUrl', {
                 required: '디스코드 웹훅 URL을 입력해 주세요.',
+<<<<<<< HEAD
+=======
+                pattern: {
+                  value: /^https?:\/\/[^\s$.?#].[^\s]*$/,
+                  message: 'http:// 또는 https://로 시작하는 URL을 입력해 주세요. (예: https://discord.com/api/webhooks/...)',
+                },
+>>>>>>> upstream/main
               })}
               error={formState.errors.discordWebhookUrl?.message}
             />
@@ -181,15 +219,28 @@ const GroupForm = ({
               placeholder="URL을 입력해 주세요."
               {...register('discordInviteUrl', {
                 required: '디스코드 서버 초대 URL을 입력해 주세요.',
+<<<<<<< HEAD
+=======
+                pattern: {
+                  value: /^https?:\/\/[^\s$.?#].[^\s]*$/,
+                  message: 'http:// 또는 https://로 시작하는 URL을 입력해 주세요. (예: https://discord.gg/abcd1234)',
+                },
+>>>>>>> upstream/main
               })}
               error={formState.errors.discordInviteUrl?.message}
             />
           </div>
           <div>
             <Label
+<<<<<<< HEAD
               id="ownerNickname"
               htmlFor="ownerNickname"
               error={!!formState.errors.ownerNickname}
+=======
+              id="nickname"
+              htmlFor="nickname"
+              error={!!formState.errors.nickname}
+>>>>>>> upstream/main
             >
               닉네임
             </Label>
@@ -197,27 +248,68 @@ const GroupForm = ({
               type="text"
               placeholder="닉네임을 입력해 주세요."
               disabled={type === 'update'}
+<<<<<<< HEAD
               {...register('ownerNickname', {
                 required: '닉네임을 입력해 주세요.',
               })}
               error={formState.errors.ownerNickname?.message}
+=======
+              {...register('nickname', {
+                required: '닉네임을 입력해 주세요.',
+                minLength: {
+                  value: 2,
+                  message: '닉네임은 2글자 이상이어야 합니다.',
+                },
+                maxLength: {
+                  value: 20,
+                  message: '닉네임은 20글자 이하여야 합니다.',
+                },
+                pattern: {
+                  value: /^[가-힣a-zA-Z0-9_-]+$/,
+                  message:
+                    '닉네임은 한글, 영문, 숫자, _, - 만 사용할 수 있습니다.',
+                },
+              })}
+              error={formState.errors.nickname?.message}
+>>>>>>> upstream/main
             />
           </div>
           <div>
             <Label
+<<<<<<< HEAD
               id="ownerPassword"
               htmlFor="ownerPassword"
               error={!!formState.errors.ownerPassword}
+=======
+              id="password"
+              htmlFor="password"
+              error={!!formState.errors.password}
+>>>>>>> upstream/main
             >
               비밀번호
             </Label>
             <Input
               type="password"
               placeholder="비밀번호를 입력해 주세요."
+<<<<<<< HEAD
               {...register('ownerPassword', {
                 required: '비밀번호를 입력해 주세요.',
               })}
               error={formState.errors.ownerPassword?.message}
+=======
+              {...register('password', {
+                required: '비밀번호를 입력해 주세요.',
+                minLength: {
+                  value: 6,
+                  message: '비밀번호는 6글자 이상이어야 합니다.',
+                },
+                maxLength: {
+                  value: 50,
+                  message: '비밀번호는 50글자 이하여야 합니다.',
+                },
+              })}
+              error={formState.errors.password?.message}
+>>>>>>> upstream/main
             />
           </div>
           <div className={cx('tags')}>
@@ -246,16 +338,31 @@ const GroupForm = ({
               {...register('goalRep', {
                 valueAsNumber: true,
                 required: '목표 횟수를 입력해 주세요.',
+<<<<<<< HEAD
+=======
+                min: {
+                  value: 1,
+                  message: '목표 횟수는 1 이상이어야 합니다.',
+                },
+                max: {
+                  value: 10000,
+                  message: '목표 횟수는 10000 이하여야 합니다.',
+                },
+>>>>>>> upstream/main
               })}
               error={formState.errors.goalRep?.message}
             />
           </div>
           <div>
+<<<<<<< HEAD
             <Button
               className={cx('submitButton')}
               type="submit"
               disabled={!formState.isValid}
             >
+=======
+            <Button className={cx('submitButton')} type="submit">
+>>>>>>> upstream/main
               {type === 'create' ? '만들기' : '수정하기'}
             </Button>
           </div>
