@@ -53,6 +53,12 @@ const GroupDeleteModal = ({
         error={formState.errors.root?.message}
       >
         <input type="hidden" name="groupId" value={groupId} />
+<<<<<<< HEAD
+        <Label
+          htmlFor="ownerPassword"
+          error={!!formState.errors.ownerPassword?.message}
+        >
+=======
         <Label htmlFor="nickname" error={!!formState.errors.nickname?.message}>
           닉네임
         </Label>
@@ -62,12 +68,17 @@ const GroupDeleteModal = ({
           {...register('nickname', { required: '닉네임을 입력해 주세요.' })}
         />
         <Label htmlFor="password" error={!!formState.errors.password?.message}>
+>>>>>>> upstream/main
           비밀번호
         </Label>
         <Input
           className={cx('input')}
           type="password"
+<<<<<<< HEAD
+          {...register('ownerPassword')}
+=======
           {...register('password')}
+>>>>>>> upstream/main
         />
         <Button
           className={cx('button')}

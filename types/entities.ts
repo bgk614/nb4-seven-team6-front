@@ -48,6 +48,18 @@ export interface GroupCreate {
   discordWebhookUrl?: string;
   discordInviteUrl?: string | null;
   tags: string[];
+<<<<<<< HEAD
+  ownerNickname: string;
+  ownerPassword: string;
+}
+
+export type GroupUpdate = Partial<GroupCreate> & {
+  ownerPassword: string;
+};
+
+export interface GroupDelete {
+  ownerPassword: string;
+=======
   nickname: string;
   password: string;
 }
@@ -59,6 +71,7 @@ export type GroupUpdate = Partial<GroupCreate> & {
 export interface GroupDelete {
   nickname: string;
   password: string;
+>>>>>>> upstream/main
 }
 
 export interface GroupJoin {

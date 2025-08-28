@@ -15,6 +15,13 @@ const GroupEditPage = async ({
   if (!group) {
     return notFound();
   }
+<<<<<<< HEAD
+
   return <GroupEditForm groupId={groupId} group={group} />;
 };
+
+=======
+  return <GroupEditForm groupId={groupId} group={group} />;
+};
+>>>>>>> upstream/main
 export default GroupEditPage;

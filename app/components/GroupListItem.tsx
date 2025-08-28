@@ -11,6 +11,7 @@ import checkCircleImage from '@/public/assets/check-circle.svg';
 import placeholderImage from '@/public/assets/placeholder.svg';
 import styles from './GroupListItem.module.css';
 import SafeImage from '@/lib/components/SafeImage';
+import Badge from '../groups/[groupId]/components/Badge';
 
 const cx = classNames.bind(styles);
 
@@ -40,6 +41,14 @@ const GroupListItem = ({
           <Image src={userImage} alt="user image" width={16} height={16} />
           {group.participants.length}명 참여 중
         </div>
+        {/* 뱃지 표시 */}
+        {group.badges && group.badges.length > 0 && (
+          <div className={cx('badges')}>
+            {group.badges.map((badge) => (
+              <Badge key={badge} badge={badge} />
+            ))}
+          </div>
+        )}
       </Link>
       {withMeta && (
         <div className={cx('groupMeta')}>
