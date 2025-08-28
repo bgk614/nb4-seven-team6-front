@@ -27,9 +27,8 @@ const nextConfig: NextConfig = {
       //   hostname: 'sprint-be-project.s3.ap-northeast-2.amazonaws.com',
       // },
       {
-        protocol: 'http',
-        hostname: '3.37.133.27',
-        port: '6123',
+        protocol: 'https',
+        hostname: 'codeit.teamproject1.server.bgk.dev',
       },
       {
         protocol: 'https',
